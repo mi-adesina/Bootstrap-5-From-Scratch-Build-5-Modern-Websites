@@ -7,10 +7,10 @@ import { Link } from "react-router-dom";
  * navigation links, and a responsive toggle for smaller screens.
  *
  * @author Michael Adesina <uniquecyborg@gmail.com>
- * @version 1.0.0 
+ * @version 1.0.0
  * @returns {JSX.Element} The Navigation component.
  */
-const Navigation = () => {
+const Navigation: React.FC = () => {
   return (
     <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
       <div className="container">
