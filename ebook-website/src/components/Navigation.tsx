@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 /**
@@ -11,17 +11,47 @@ import { Link } from "react-router-dom";
  * @returns {JSX.Element} The Navigation component.
  */
 const Navigation: React.FC = () => {
-  return (
-    <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-      <div className="container">
-        <Link to="/" className="navbar-brand">
-          <img
-            src="/images/logo.png"
-            alt="Website Logo"
-            title="Homepage"
-            style={{ width: 225 }}
-          />
-        </Link>
+	const [isScrolled, setIsScrolled] = useState<boolean>(false);
+	const navbarRef = useRef<HTMLElement | null>(null); // Ref for the navbar
+
+	useEffect(() => {
+		const handleScroll = () => {
+			if (!navbarRef.current) return; // Guard clause for null ref
+
+			const currentScroll = window.scrollY;
+			setIsScrolled(currentScroll > 50); // Direct boolean assignment
+
+			if (isScrolled) {
+				// Use state to toggle class
+				navbarRef.current.classList.add("bg-dark");
+				navbarRef.current.classList.add("navbar-sticky");
+			} else {
+        navbarRef.current.classList.remove("bg-dark");
+				navbarRef.current.classList.remove("navbar-sticky");
+			}
+		};
+
+		window.addEventListener("scroll", handleScroll);
+
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, [isScrolled]); // Add isScrolled to the dependency array
+
+	return (
+		<nav
+			className="navbar navbar-expand-lg fixed-top navbar-dark"
+			ref={navbarRef}
+		>
+			<div className="container">
+				<Link to="/" className="navbar-brand">
+					<img
+						src="/images/logo.png"
+						alt="Website Logo"
+						title="Homepage"
+						style={{ width: 225 }}
+					/>
+				</Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -55,9 +85,9 @@ const Navigation: React.FC = () => {
             </li>
           </ul>
         </div>
-      </div>
-    </nav>
-  );
+			</div>
+		</nav>
+	);
 };
 
 export default Navigation;
