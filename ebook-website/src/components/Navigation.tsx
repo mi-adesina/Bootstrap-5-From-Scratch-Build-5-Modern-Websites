@@ -1,6 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+/**
+ * Navigation component for the website.
+ * This component renders the main navigation bar, including the logo,
+ * navigation links, and a responsive toggle for smaller screens.
+ *
+ * @author Michael Adesina <uniquecyborg@gmail.com>
+ * @version 1.0.0 
+ * @returns {JSX.Element} The Navigation component.
+ */
 const Navigation = () => {
   return (
     <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
@@ -18,6 +27,9 @@ const Navigation = () => {
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -36,7 +48,7 @@ const Navigation = () => {
             <li className="nav-item">
               <Link
                 to="/contact"
-                className="nav-link fw-semi-bold btn btn-outline-light px-4 mx-4"
+                className="nav-link btn btn-outline-light fw-semibold px-4 mx-4"
               >
                 Contact
               </Link>
