@@ -7,6 +7,7 @@ import {
     IconDefinition, // Import IconDefinition type
 } from "@fortawesome/free-solid-svg-icons";
 
+// Interface for Icon data used in Icons and IconItem components
 interface IconData {
     icon: IconDefinition;
     title: string;
@@ -15,7 +16,10 @@ interface IconData {
 }
 
 /**
- * Component displaying a section of icons with descriptions.
+ * Icons component displaying a section with multiple icons and descriptions.
+ * 
+ * @author Michael Adesina <uniquecyborg@gmail.com>  (Add author information)
+ * @returns {JSX.Element} The Icons component.
  */
 const Icons: React.FC = () => {
     const iconData: IconData[] = [
@@ -52,6 +56,7 @@ const Icons: React.FC = () => {
     );
 };
 
+// Interface for IconItem component props
 interface IconItemProps {
     icon: IconDefinition;
     title: string;
@@ -60,8 +65,10 @@ interface IconItemProps {
 }
 
 /**
- * Reusable component for displaying an icon with a title and text.
+ * Reusable IconItem component for displaying an icon with a title and text.
+ * 
  * @param {IconItemProps} props - The component props.
+ * @returns {JSX.Element} The IconItem component.
  */
 const IconItem: React.FC<IconItemProps> = ({ icon, title, text, iconColor }) => (
     <div className="col-md-4 d-flex gap-4">
