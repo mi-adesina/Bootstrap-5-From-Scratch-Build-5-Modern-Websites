@@ -1,8 +1,8 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import './styles/main.scss'; // Import your main SCSS
+import './styles/main.scss';
 import App from './App.tsx';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Import Bootstrap JS
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const container = document.getElementById('root');
 if (container) { // Check if the root element exists
