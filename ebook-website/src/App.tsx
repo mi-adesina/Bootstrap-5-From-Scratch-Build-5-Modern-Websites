@@ -3,6 +3,9 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Header from "./components/Header";
 import Icons from "./components/Icons";
+import Details from "./components/Details";
+import Statements from "./components/Statements";
+import Details2 from "./components/Details2";
 
 /**
  * Main application component.
@@ -18,6 +21,9 @@ const App: React.FC = () => {
                 <Navigation />
                 <Header />
                 <Icons />
+                <Details />
+                <Statements />
+                <Details2 />
             </Router>
         </>
     );
