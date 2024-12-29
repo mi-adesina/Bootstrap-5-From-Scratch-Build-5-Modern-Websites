@@ -114,7 +114,7 @@ const Details2: React.FC = () => {
 										))}
 									</ul>
 									<a href="" className="btn btn-primary text-white">
-										Free Download
+									Learn More
 									</a>
 									<button className="btn btn-light" data-bs-dismiss="modal">
 										Close

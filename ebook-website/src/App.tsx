@@ -7,6 +7,7 @@ import Details from "./components/Details";
 import Statements from "./components/Statements";
 import Details2 from "./components/Details2";
 import Testimonials from "./components/Testimonials";
+import Download from "./components/Download";
 
 /**
  * Main application component.
@@ -26,6 +27,7 @@ const App: React.FC = () => {
                 <Statements />
                 <Details2 />
                 <Testimonials />
+                <Download />
             </Router>
         </>
     );
