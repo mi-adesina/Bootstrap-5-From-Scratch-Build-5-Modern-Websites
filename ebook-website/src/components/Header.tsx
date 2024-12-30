@@ -1,75 +1,30 @@
-import React, { FormEvent } from "react";
+import React from "react";
+import ForContactComponent from "./ForContactComponent";
+import ForHomeComponent from "./ForHomeComponent";
 
 /**
  * Header component for the website's main landing section.
  * This component displays a hero section with an image, descriptive text,
- * and a form for users to submit their email address.
+ * and a form for users to submit their email address (on the home page).
+ *
+ * @prop {boolean} isHome  - A flag indicating whether the component is being rendered on the home page.
+ *                             If true, displays the `ForHomeComponent`, otherwise displays the `ForContactConpoment`.
+ * @prop {React.ComponentType} ForHomeComponent  - React component to be displayed on the home page.
+ * @prop {React.ComponentType} ForContactConpoment  - React component to be displayed on other pages.
  *
  * @author Michael Adesina <uniquecyborg@gmail.com>
  * @version 1.0.0
- * @returns {JSX.Element} The Header component.
+ * @returns {JSX.Element} The Header component..
  */
-const Header: React.FC = () => {
-	/**
-	 * Handles form submission.
-	 * Prevents default form submission behavior and logs a message to the console.
-	 *
-	 * @param {FormEvent<HTMLFormElement>} e The form submit event.
-	 */
-	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		console.log("Form Submitted");
-	};
+const Header: React.FC = ({ isHome }) => {
+	const isHomeRendering: boolean = isHome;
 
 	return (
 		<header className="header">
 			<div className="hero text-white pt-7">
 				<div className="container-xl">
 					<div className="row">
-						<div className="col-md-6">
-							<div className="image-container mb-5 px-4">
-								<img
-									src="images/header-ebook.png"
-									alt="Ebook Image"
-									title="Ebook front page"
-									className="img-fluid"
-									loading="lazy"
-								/>
-							</div>
-						</div>
-						<div className="col-md-6">
-							<div className="text-container p-4 d-flex flex-column justify-content-center h-100 mb-5">
-								<h1 className="display-3 fw-bold">Welcome to Blog Mastery</h1>
-								<p className="lead">
-									Are you ready to take your blogging journey to new heights?
-									Blog Mastery is your ultimate guide to creating and managing a
-									successful blog that captivates your audience and drives
-									engagement.
-								</p>
-
-								<div className="form-container text-center">
-									<form onSubmit={handleSubmit}>
-										<div className="my-4">
-											<input
-												type="email"
-												className="form-control form-control-lg rounded-5"
-												placeholder="Email Address"
-												aria-label="Enter your email"
-												required
-											/>
-										</div>
-										<div className="d-grid">
-											<button
-												className="btn btn-primary btn-lg text-white"
-												type="submit"
-											>
-												Free Download
-											</button>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
+						{isHomeRendering ? <ForHomeComponent /> : <ForContactComponent />}
 					</div>
 				</div>
 			</div>
