@@ -43,7 +43,7 @@ const ForHomeComponent: React.FC = () => {
             <div className="col-md-6">
                 <div className="image-container mb-5 px-4">
                     <img
-                        src="images/header-ebook.png"
+                        src="/images/header-ebook.png"
                         alt="Ebook Image"
                         title="Ebook front page"
                         className="img-fluid"

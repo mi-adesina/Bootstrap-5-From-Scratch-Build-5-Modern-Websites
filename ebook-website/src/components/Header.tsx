@@ -2,6 +2,10 @@ import React from "react";
 import ForContactComponent from "./ForContactComponent";
 import ForHomeComponent from "./ForHomeComponent";
 
+interface HeaderProps {
+	isHome: boolean;
+  }
+
 /**
  * Header component for the website's main landing section.
  * This component displays a hero section with an image, descriptive text,
@@ -16,7 +20,7 @@ import ForHomeComponent from "./ForHomeComponent";
  * @version 1.0.0
  * @returns {JSX.Element} The Header component..
  */
-const Header: React.FC = ({ isHome }) => {
+const Header: React.FC<HeaderProps> = ({ isHome }) => {
 	const isHomeRendering: boolean = isHome;
 
 	return (
